@@ -27,12 +27,19 @@ public with sharing class FlowControlLoopsCollections {
      * @param y The second number.
      * @return "Hello World!" if x greater than y, otherwise return null.
      */
+
+
     public static String helloWorld(Integer x, Integer y) {
-        if (x > y) {
-            return 'Hello World!';
+
+        String result;
+        if (x == null || y == null || x < y) {
+            result = null;
+        } else if (x > y) {
+            result = 'Hello World';
         } else {
-            return null;
+            result = null;
         }
+        return result;
     }
 
     /**
@@ -64,7 +71,6 @@ public with sharing class FlowControlLoopsCollections {
             return num2;
         }
     }
-
 
     /**
      * Checks if a number is positive, negative, or zero.
@@ -179,7 +185,7 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static String repeatString(String inputString, Integer repeatCount) {
         // Initialize the result String
-
+        String result = '';
         // Use a for loop to append the inputString to the result string repeatCount times
         /*
         for () {
@@ -187,9 +193,15 @@ public with sharing class FlowControlLoopsCollections {
             // If it is not the last iteration, add a semicolon to separate the strings
         }
         */
+        for (Integer i = 1; i <= repeatCount; i++) {
+            result = result + inputString;
+            if (i != repeatCount) {
+                result = result + '; ';
+            }
+        }
 
         // Return the final result string
-        return null; // Replace null with the variable you used to store the result
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -281,6 +293,31 @@ public with sharing class FlowControlLoopsCollections {
      * @return The position of the word in the list as a string or -1 if the word was not found.
      */
     public static Integer findWordInList(String wordToFind, List<String> words) {
+        System.debug(words);
+
+        Integer position = 0;
+        for (String currentWord: words) {
+            // Does current iteration string = wordToFind?
+            if (currentWord == wordToFind) {
+                break;
+            }
+            position += 1;
+        }
+        return position;
+
+
+//        Integer sizeOfWords = words.size();
+//        for (Integer i = 0; i < sizeOfWords ; i++) {
+//            // i = 2
+//            // Does current iteration string = wordToFind?
+//            String currentString = words.get(i); // words.get(2); 'World'
+//            if (currentString == wordToFind ) {
+//                return i; // return 2
+//            }
+//            System.debug(i);
+//        }
+
+
         // The variable to store the index of the word
 
         // Loop through the list of words

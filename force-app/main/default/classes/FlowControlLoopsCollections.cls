@@ -90,7 +90,7 @@ public with sharing class FlowControlLoopsCollections {
             return 'Zero';
         }
     }
-
+    // RESUME HERE
     /**
      * Checks if a number is even or odd.
      * If the number is null, return null.
@@ -99,11 +99,7 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the number is "Even" or "Odd", or null if the number is null.
      */
     public static String checkEvenOdd(Integer a) {
-        if (a == null) {
-            return null;
-        } else {
-            return Math.mod(a, 2) == 0? 'Even': 'Odd';
-        }
+        return null; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -113,16 +109,8 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the input is "Empty", "Null", or "Contains Text".
      */
     public static String checkString(String a) {
-        if (a == null) {
-            return 'Null';
-        } else if (String.isEmpty(a)) {
-            return 'Empty';
-        } else {
-            return 'Contains Text';
-        }
+        return null; // Replace null with the variable you used to store the result
     }
-
-    //Resume Here
 
     /**
      * Determines the grade based on the score.

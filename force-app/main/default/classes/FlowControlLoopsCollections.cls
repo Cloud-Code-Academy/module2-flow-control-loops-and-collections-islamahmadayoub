@@ -35,7 +35,7 @@ public with sharing class FlowControlLoopsCollections {
         if (x == null || y == null || x < y) {
             result = null;
         } else if (x > y) {
-            result = 'Hello World';
+            result = 'Hello World!';
         } else {
             result = null;
         }
@@ -229,15 +229,12 @@ public with sharing class FlowControlLoopsCollections {
      * @return A List of integers from 1 to 'n'.
      */
     public static List<Integer> createIntegerList(Integer n) {
-        // Create a new list of integers 
-
-        /*
-        for() {
-            //add integer to the list
+        List<Integer> listOfIntegers = new List<Integer>();
+        for (Integer i = 1; i <= n; i++) {
+            listOfIntegers.add(i);
         }
-        */ 
 
-        return null; // Replace null with the variable you used to store the result
+        return listOfIntegers; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -250,10 +247,13 @@ public with sharing class FlowControlLoopsCollections {
     public static Set<String> createStringSet(List<String> inputList) {
         // Create a new Set of strings
         Set<String> stringSet = new Set<String>();
+        for (String currentItem: inputList) {
+            stringSet.add(currentItem);
+        }
 
         //add strings to the set
 
-        return null; // Replace null with the variable you used to store the result
+        return stringSet; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -263,12 +263,17 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer sumPositiveIntegers() {
         List<Integer> numbers = new List<Integer>{-1, 2, -3, 4, -5, 6}; //DO NOT CHANGE
-
+        Integer sum = 0;
+        for (Integer currentNumber: numbers) {
+            if (currentNumber > 0) {
+                sum+= currentNumber;
+            }
+        }
         // Loop through the list of integers
             // if the number is negative skip this iteration
         
 
-        return null; // Replace null with the variable you used to store the result
+        return sum; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -279,9 +284,14 @@ public with sharing class FlowControlLoopsCollections {
      * @return The position of the word in the list as a string or -1 if the word was not found.
      */
     public static Integer findWordInList(String wordToFind, List<String> words) {
-
-
-        return null; // Replace null with the variable you used to store the result
+        Integer position = -1;
+        for (String currentWord: words) {
+            if (wordToFind == currentWord) {
+                position = words.indexOf(currentWord);
+                break;
+            }
+        }
+        return position;
     }
 
     /**
@@ -293,8 +303,13 @@ public with sharing class FlowControlLoopsCollections {
     public static Decimal countMoney() {
         // The list of money in the wallet, represented in dollars and cents
         List<Decimal> moneyInWallet = new List<Decimal>{0.50, 10, 3.84, 24.60, 9.08, 50, 4.90}; //DO NOT CHANGE
-
-        return null; // Replace null with the variable you used to store the result
+        Decimal total = 0;
+        for (Decimal currentAmount: moneyInWallet) {
+            if (total < 40) {
+                total+= currentAmount;
+            }
+        }
+        return total; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -303,16 +318,15 @@ public with sharing class FlowControlLoopsCollections {
      * @return The Map of fruits and their quantities.
      */
     public static Map<String, Integer> addItemsToMap() {
-        // Initialize an empty Map
 
-        // Add key-value pairs to the Map
-        // add Apples => 5
-        // add Oranges => 10
-        // add Bananas => 15
-        // add Pears => 20
-        // add Grapes => 25
+        Map<String, Integer> fruitsMap = new Map<String, Integer>();
+        fruitsMap.put('Apples', 5);
+        fruitsMap.put('Oranges', 10);
+        fruitsMap.put('Bananas', 15);
+        fruitsMap.put('Pears', 20);
+        fruitsMap.put('Grapes', 25);
 
-        return null; // Replace null with the variable you used to store the result
+        return fruitsMap; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -325,17 +339,13 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer getSalary(String employeeName) {
         // Initialize a Map
+        Map<String, Integer> employeesSalariesMap = new Map<String, Integer>();
+        employeesSalariesMap.put('John Doe', 50000);
+        employeesSalariesMap.put('Jane Smith', 60000);
+        employeesSalariesMap.put('Sam Brown', 55000);
+        employeesSalariesMap.put('Alice Johnson', 65000);
 
-        // Add key-value pairs to the Map
-        // add John Doe => 50000
-        // add Jane Smith => 60000
-        // add Sam Brown => 55000
-        // add Alice Johnson => 65000
-
-        // Get the salary of the employee
-
-        // Return the salary of the employee, or null if the employee is not found in the Map
-        return null; // Replace null with the variable you used to store the result
+        return employeesSalariesMap.get(employeeName); // Replace null with the variable you used to store the result
     }
 
     /**
@@ -348,23 +358,21 @@ public with sharing class FlowControlLoopsCollections {
      * @return A list of employee names who have a salary more than 55000.
      */
     public static List<String> getHighPaidEmployees() {
-        // Initialize a Map
-        Map<String, Integer> employeeSalaries = new Map<String, Integer>();
 
-        // Add key-value pairs to the Map
-        // add John Doe => 50000
-        // add Jane Smith => 60000
-        // add Sam Brown => 55000
-        // add Alice Johnson => 65000
+        Map<String, Integer> employeesSalariesMap = new Map<String, Integer>();
+        employeesSalariesMap.put('John Doe', 50000);
+        employeesSalariesMap.put('Jane Smith', 60000);
+        employeesSalariesMap.put('Sam Brown', 55000);
+        employeesSalariesMap.put('Alice Johnson', 65000);
 
-        // Initialize a list to store the names of high paid employees
+        List<String> highPaidEmployees = new List<String>();
+        for (String currentEmployee: employeesSalariesMap.keySet()) {
+            if (employeesSalariesMap.get(currentEmployee) > 55000) {
+                highPaidEmployees.add(currentEmployee);
+            }
+        }
 
-        // Iterate over the Map using a for loop
-            // Check if the salary of the employee is more than 55000
-                // Add the employee to the list of high paid employees
-
-        // Return the list of high paid employees
-        return null; // Replace null with the variable you used to store the result
+        return highPaidEmployees; // Replace null with the variable you used to store the result
     }
 
 }
